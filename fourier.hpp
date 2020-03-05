@@ -3,7 +3,7 @@
 #ifndef FOURIER__HPP
 #define FOURIER__HPP
 
-#include<complex>
+#include <complex>
 #include <rarray>
 
 typedef std::complex<double> complex;
