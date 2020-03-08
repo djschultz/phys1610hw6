@@ -7,6 +7,6 @@
 #include <complex>
 
 
-void powerSpectrum(rvector<std::complex<double>> fhat, rvector<double> spectrum);
+void power_spectrum(rvector<std::complex<double>> fhat, rvector<double> spectrum);
 
 #endif
