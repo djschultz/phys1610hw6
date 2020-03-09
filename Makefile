@@ -1,4 +1,4 @@
-#Makefile for antsontable.cpp
+#Makefile for gravity_waves.cpp
 
 #Specify what compiler we will use
 CXX = g++
@@ -7,9 +7,11 @@ CXX = g++
 NETCDF_LIB = ${SCINET_NETCDF_ROOT}/lib
 NETCDF_INC = ${SCINET_NETCDF_ROOT}/include
 
+#Specify location of hte fftw library
 FFTW_LIB = ${SCINET_FFTW_ROOT}/lib
 FFTW_INC = ${SCINET_FFTW_ROOT}/include
 
+#Specify location of the openblas library
 BLAS_LIB = ${HOME}/OpenBLAS/lib/
 BLAS_INC = ${HOME}/OpenBLAS/include/
 
@@ -18,12 +20,10 @@ flags = -std=c++14 -O3 -march=native
 
 #Link all of the out files and combine into an executable called antsontable
 gravity_waves: gravity_waves.o readNetCDF.o fourier.o power.o correlation.o
-#ants.o partition.o vectorization.o timeEvolve.o report.o writeText.o writeBinary.o writeNetCDF.o
 	$(CXX) $(flags) -o gravity_waves gravity_waves.o -L$(FFTW_LIB) fourier.o -lfftw3 power.o -L$(BLAS_LIB) correlation.o -lopenblas -L$(NETCDF_LIB) readNetCDF.o -lnetcdf_c++4
 
 #Individually compile all of the modules without making an executable
 gravity_waves.o: gravity_waves.cpp 
-#ants.hpp partition.hpp vectorization.hpp timeEvolve.hpp report.hpp
 	$(CXX) $(flags) -c -o gravity_waves.o gravity_waves.cpp
 
 fourier.o: fourier.cpp
