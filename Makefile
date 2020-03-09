@@ -39,5 +39,5 @@ readNetCDF.o: readNetCDF.cpp
 	$(CXX) -I$(NETCDF_INC) -c -o readNetCDF.o readNetCDF.cpp
 
 clean: 
-	rm -f gravity_waves gravity_waves.o readNetCDF.o fourier.o power.o correlation.o timeEvolve.o report.o output.dat writeText.o writeBinary.o writeNetCDF.o readText.o readBinary.o readNetCDF.o file_reading.o ants.rat ants.bin ants.nc
+	rm -f gravity_waves gravity_waves.o readNetCDF.o fourier.o power.o correlation.o output.dat
 	
